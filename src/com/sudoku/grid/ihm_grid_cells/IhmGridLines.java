@@ -73,7 +73,7 @@ public class IhmGridLines extends GridPane implements EventHandler<IhmCellEdited
     };
 
     public static Flags FIT_GRID = Flags.resetAutoFlag();
-    public static Flags FIXED_HIDABLE = Flags.getAutoNextFlag();
+    public static Flags FIXED_HIDEABLE = Flags.getAutoNextFlag();
     public static Flags ALL_VIEW = Flags.getAutoNextFlag();
     public static Flags ALL_EDITABLE = Flags.getAutoNextFlag();
 
@@ -126,8 +126,8 @@ public class IhmGridLines extends GridPane implements EventHandler<IhmCellEdited
                 if ((cell instanceof FixedCell && cellsFlag.contains(FIT_GRID)) || cellsFlag.contains(ALL_VIEW)) {
                     ihmCell = new IhmCellView(cellSide);
                     ihmCell.setValue(((FixedCell) cell).getValue());
-                    if (cellsFlag.contains(FIXED_HIDABLE)) {
-                        ((IhmCellView) ihmCell).setHidable(true);
+                    if (cellsFlag.contains(FIXED_HIDEABLE)) {
+                        ((IhmCellView) ihmCell).setHideable(true);
                     }
                 } else {
                     ihmCell = new IhmCellEditable(cellSide);

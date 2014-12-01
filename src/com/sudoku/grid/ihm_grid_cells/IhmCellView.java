@@ -13,8 +13,8 @@ import javafx.scene.input.MouseEvent;
 public class IhmCellView extends IhmCell {
 
     protected Label valueView;
-    protected boolean hiden;
-    protected boolean hidable;
+    protected boolean hidden;
+    protected boolean hideable;
 
     protected int valueFontSize = 20;
 
@@ -29,17 +29,17 @@ public class IhmCellView extends IhmCell {
 
             @Override
             public void handle(MouseEvent t) {
-                if (t.getEventType() == MouseEvent.MOUSE_CLICKED && hidable) {
-                    setHiden(!hiden);
+                if (t.getEventType() == MouseEvent.MOUSE_CLICKED && hideable) {
+                    setHidden(!hidden);
                     t.consume();
                 }
             }
 
         });
 
-        // Init hiden attribut at false
-        hiden = false;
-        hidable = false;
+        // Init hidden attribut at false
+        hidden = false;
+        hideable = false;
 
         /*init valueView attribut and add it to the layout*/
         valueView = new Label();
@@ -77,10 +77,10 @@ public class IhmCellView extends IhmCell {
     /**
      * Use to enable/disable automatic hide when user click on the Cell
      *
-     * @param hidable
+     * @param hideable
      */
-    public void setHidable(boolean hidable) {
-        this.hidable = hidable;
+    public void setHideable(boolean hideable) {
+        this.hideable = hideable;
     }
 
     /**
@@ -88,12 +88,12 @@ public class IhmCellView extends IhmCell {
      *
      * @param hidden
      */
-    public void setHiden(boolean hidden) {
-        this.hiden = hidden;
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
         valueView.setVisible(!hidden);// Use to show/hide it
     }
 
-    public boolean isHiden() {
-        return hiden;
+    public boolean isHidden() {
+        return hidden;
     }
 }
